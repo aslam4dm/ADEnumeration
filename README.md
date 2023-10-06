@@ -17,3 +17,4 @@ Uncomment the sections that correlate and that you would like to run. Note: thes
 [3]
 Come back some day and automate the Nested Group area. At the moment, to determine nested groups, you would have to hardcode the group name in the Searcher Filter section, and then uncomment the Group section of the main loop. Then analyse the members of the group and continue the cycle with the  'member group'
 
+compenum, groupenum and userenum are short scripts taken from ADE, with comments omitted - made for single functionality purposes
