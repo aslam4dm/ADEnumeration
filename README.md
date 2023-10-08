@@ -23,4 +23,5 @@ compenum, groupenum and userenum are short scripts taken from ADE, with comments
 DisplayNestedGroups.ps1 - improved output display of nestedgroup - needs to be tested against Domains with more "nestations" :)
 ![image](https://github.com/aslamadmani1337/ADEnumeration/assets/35896884/a7fd3c64-da89-4f88-aa86-32193d116c61)
 
-
+Nestations.ps1 - displayed output updated further
+![image](https://github.com/aslamadmani1337/ADEnumeration/assets/35896884/317186bf-400a-4f56-b699-8ef715f456f9)
