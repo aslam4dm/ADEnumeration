@@ -20,5 +20,7 @@ Come back some day and automate the Nested Group area. At the moment, to determi
 compenum, groupenum and userenum are short scripts taken from ADE, with comments omitted - made for single functionality purposes
 
 
-DisplayNestedGroup - improved output display of nestedgroup
-![image](https://github.com/aslamadmani1337/ADEnumeration/assets/35896884/b440a6da-bbf9-43b8-98e3-07a38e769f12)
+DisplayNestedGroups.ps1 - improved output display of nestedgroup
+![image](https://github.com/aslamadmani1337/ADEnumeration/assets/35896884/a7fd3c64-da89-4f88-aa86-32193d116c61)
+
+
