@@ -30,32 +30,38 @@ function Get-NestedGroupsFromSearchResults
 	foreach($property in $searchResults.properties)
 	{
 		#$property.name
-		#write-host "---"
 		# if groupname is specified get its members with .member
 		if($property.member)
 		{
 			if ($property.member -like "CN=*")
 			{
 			    #$property.member.GetType().fullname
-				
+				#$property.member is System.DirectoryServices.ResultPropertyValueCollection
 				foreach ($item in $property.member) 
 				{
+				    #$item.gettype().fullname
+				    #$item is System.String
+				    #e.g. item string: CN=t1_toby.beck5,OU=T1,OU=Admins,DC=za,DC=tryhackme,DC=com
 	                if ($item -match $pattern)
 	                {
 	                    $result = $matches[1]
-	                    #Write-Host "Result: $result"
+	                    #e.g. regex match t1_toby.beck5
+	                    
 	                    $Searcher.filter="(name=$result)"
 	                    $search = $Searcher.FindAll()
+	                    
 	                    foreach($obj in $search)
 	                    {
-	                        #$obj.properties.objectcategory.gettype().fullname
+	                        #$obj.properties.objectcategory is System.DirectoryServices.SearchResult
 	                        foreach($val in $obj.properties.objectcategory)
 	                        {
+	                            #$val is System.String
+	                            ##e.g. val string: "CN=Person,CN=Schema,CN=Configuration,DC=za,DC=tryhackme,DC=com"
 	                            if ($val.Contains("Group"))
-	                            #if ($obj.Contains("Group"))
 		                        {
 			                        write-host "Nested Group Detected: " $property.name "->" $result
-			                        # Recursion
+			                        # Recursion - rerun the function with the FindAll object of the new Group 
+			                        
 			                        Get-NestedGroupsFromSearchResults -searchResults $obj
 		                        }
 		                    }
@@ -71,6 +77,6 @@ function Get-NestedGroupsFromSearchResults
 $ObjectSearch = $Searcher.FindAll()
 foreach($result in $ObjectSearch)
 {
+   # $result is System.DirectoryServices.SearchResult
 	Get-NestedGroupsFromSearchResults -searchResults $result
 }
-
