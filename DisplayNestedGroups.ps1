@@ -24,7 +24,7 @@ function Get-NestedGroupsFromSearchResults
         [System.DirectoryServices.SearchResult]$searchResults,
         [string]$indent = "",
         [int]$nestation = 0,
-        [int]$level = 0,
+        [int]$level = 0
     )
     
     # Initialize an empty array to store results
