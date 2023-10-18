@@ -8,10 +8,6 @@
 
 
 /*
-
-LDAP Query with PowerShell: You can use the .NET classes to query Active Directory with LDAP from PowerShell. Here's an example to retrieve users with pre-authentication not required:
-powershell
-Copy code
 [ADSI]"LDAP://DC=yourdomain,DC=com" | 
     Select-Object -ExpandProperty "DontRequirePreAuth" | 
     Where-Object {$_ -eq $true} | 
@@ -20,7 +16,6 @@ Copy code
         $entry.Properties["cn"].Value
     }
     
-/*
 This script queries Active Directory using LDAP and retrieves user accounts with "Do not require Kerberos preauthentication" enabled. Here's a step-by-step explanation of the script:
 
 [ADSI]"LDAP://DC=yourdomain,DC=com":
