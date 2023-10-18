@@ -1,0 +1,1 @@
+while read -r username; do ldapsearch -H ldap://your_domain_controller -D "ServiceAccountUsername" -W -x -b "dc=yourdomain,dc=com" -s sub -LLL "(&(sAMAccountName=$username)(userAccountControl:1.2.840.113556.1.4.803:=4194304))" cn; done < usernames.txt
