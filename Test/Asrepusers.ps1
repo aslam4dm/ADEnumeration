@@ -7,7 +7,7 @@
     }
 
 
-/*
+<#
 [ADSI]"LDAP://DC=yourdomain,DC=com" | 
     Select-Object -ExpandProperty "DontRequirePreAuth" | 
     Where-Object {$_ -eq $true} | 
@@ -36,4 +36,4 @@ This line creates an ADSI (Active Directory Service Interfaces) object for the u
 $entry.Properties["cn"].Value:
 
 This retrieves the Common Name (cn) of the user account. The Common Name is one of the attributes of a user in Active Directory.
-*/
+#>
