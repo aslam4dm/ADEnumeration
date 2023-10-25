@@ -1,0 +1,1 @@
+([adsisearcher]"(&(objectClass=user)(servicePrincipalName=*))").FindAll() | ForEach-Object { $user = $_.Properties['sAMAccountName'][0]; $spns = $_.Properties['servicePrincipalName']; $isKerberoastable = $spns -match ".*\/(krbtgt|rc4|aes)@.*"; if ($isKerberoastable) { "User Account: $user (Kerberoastable)" } }
