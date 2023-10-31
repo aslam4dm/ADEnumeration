@@ -25,3 +25,7 @@ DisplayNestedGroups.ps1 - improved output display of nestedgroup - needs to be t
 
 Nestations.ps1 - displayed output updated further
 ![image](https://github.com/aslamadmani1337/ADEnumeration/assets/35896884/317186bf-400a-4f56-b699-8ef715f456f9)
+
+
+GrpObjEnum.ps1 is a powershell one liner that uses adsisearcher to find all AD objects that are members of a specified group. It then iteratively performs powerview's get-objectacl on the discovered object. 
+Note: until you can manually perform object enumeration, we use powerview's get-objectacl... but, but why??? why adsi, then powerview? you make no sense??? Ha, good'un, welp... adsisearcher is used as part of the learning process... just need to figure out object enum using adsi or some other built in .net Class or Windows COM... Until then, powerview's fine :) 
