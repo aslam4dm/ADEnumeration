@@ -1,1 +1,2 @@
+# this command is dependent on the powerview module because of the command get-objectacl
 ([adsisearcher]("objectcategory=*")).findall() | foreach-object {foreach ($g in $_.properties.memberof){if ($g.split(",")[0].split("=")[1] -eq "IT Admins"){get-objectacl -samaccountname $_.properties.samaccountname | ? {$_.ActiveDirectoryRights -eq "GenericAll" -or $_.ActiveDirectoryRights -eq "ExtendedRight" -and $_.IdentityReference -ne "NT AUTHORITY\SELF" -and $_.IdentityReference -ne "NT AUTHORITY\SYSTEM"} | select ObjectSID,IdentityReference,ActiveDirectoryRights}}}
